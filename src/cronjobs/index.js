@@ -2,4 +2,8 @@ const reportCron = require("./report");
 
 const cronJobs = [reportCron];
 
-module.exports = cronJobs;
+function startCronJobs() {
+  cronJobs.forEach((cronJob) => cronJob.start());
+}
+
+module.exports = startCronJobs;

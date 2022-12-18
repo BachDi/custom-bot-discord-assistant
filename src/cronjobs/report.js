@@ -1,9 +1,9 @@
 const sendMessage = require("../api/sendmessage");
 
-var CronJob = require("cron").CronJob;
-var job = new CronJob(
-  // "00 30 10 * * 1-5",
-  "00 39 18 * * 0,6",
+const CronJob = require("cron").CronJob;
+const job = new CronJob(
+  "00 30 10 * * 1-5",
+  // "20 05 20 * * 0,6",
   // "* * * * * *",
   async function () {
     /*
@@ -12,9 +12,10 @@ var job = new CronJob(
      * or Sunday.
      */
     console.log("Report job started");
-    // await sendMessage({
-    //   content: "Love you <@!466791305494659084>",
-    // });
+    const message = {
+      content: "Report HR <@!466791305494659084>",
+    };
+    await sendMessage(message);
   },
   function () {
     console.log("Report job stopped");

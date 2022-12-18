@@ -15,13 +15,13 @@ const requestHandler = (request, response) => {
 
   // response.end("Hello Node.js Server!");
 };
+
+cronJobs();
+
 const server = http.createServer(requestHandler);
 server.listen(port, async (err) => {
   if (err) {
     return console.log("something bad happened", err);
   }
-  cronJobs.forEach((job) => {
-    job.start();
-  });
   console.log(`server is listening on ${port}`);
 });
